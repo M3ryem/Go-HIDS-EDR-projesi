@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// PanelVerisi web arayüzüne göndereceğimiz istatistik yapısı
+
 type PanelVerisi struct {
 	TotalAlerts int      `json:"total_alerts"`
 	CreateCount int      `json:"create_count"`
@@ -19,13 +19,13 @@ type PanelVerisi struct {
 	RecentLogs  []string `json:"recent_logs"`
 }
 
-// Güvenli veri havuzumuz
+
 var (
 	SystemStats PanelVerisi
 	statsMutex  sync.Mutex
 )
 
-// Alert yapısı
+
 type Alert struct {
 	Timestamp string `json:"timestamp"`
 	Type      string `json:"type"`
@@ -34,7 +34,7 @@ type Alert struct {
 	Details   string `json:"details"`
 }
 
-// VeriEkle fonksiyonunu monitor paketi çağıracak
+
 func VeriEkle(islemTipi string, mesaj string) {
 	statsMutex.Lock()
 	defer statsMutex.Unlock()
@@ -57,7 +57,7 @@ func VeriEkle(islemTipi string, mesaj string) {
 	}
 	SystemStats.RecentLogs = append(SystemStats.RecentLogs, logMesaji)
 
-	// Alarmları alerts.json dosyasına yazıyoruz
+	
 	yeniAlarm := Alert{
 		Timestamp: zaman,
 		Type:      "PROCESS",
@@ -76,7 +76,7 @@ func VeriEkle(islemTipi string, mesaj string) {
 	}
 }
 
-// StartWebDashboard Web sunucusunu başlatır
+
 func StartWebDashboard(port string) {
 	http.HandleFunc("/", handleIndex)
 	http.HandleFunc("/api/alerts", handleAlertsAPI)
