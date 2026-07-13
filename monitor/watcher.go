@@ -6,7 +6,7 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 
-	"go-hids/dashboard" // ✅ 8080 yerine go-hids olarak düzeltildi
+	"go-hids/dashboard" 
 )
 
 // StartFileWatcher belirtilen klasörü siber tehditlere karşı canlı izler
