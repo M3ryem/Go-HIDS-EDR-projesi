@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-hids/dashboard" // ✅ Doğru modül adı olan go-hids yapıldı
-	"go-hids/monitor"   // ✅ Doğru modül adı olan go-hids yapıldı
-	"go-hids/process"   // ✅ Doğru modül adı olan go-hids yapıldı
+	"go-hids/dashboard" 
+	"go-hids/monitor"  
+	"go-hids/process"  
 )
 
 func main() {
